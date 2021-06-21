@@ -1,5 +1,5 @@
 <h1>ログイン</h1>
-<%= form_tag(:sessions, method: :post) do %>
+<%= form_with url: login_path, method: :post do %>
   <%= label_tag(:user_id, 'ユーザID') %>
   <%= text_field_tag(:user_id) %>
   <br>
