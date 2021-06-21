@@ -14,7 +14,12 @@ class PicturesController < ApplicationController
       title: pictures_params[:title], 
       file: pictures_params[:file]
     )
-    picture.save
+    if picture.save
+      redirect_to pictures_path
+    else
+      @error_messages = picture.errors.full_messages
+      render :new
+    end
   end
 
   private
