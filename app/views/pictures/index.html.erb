@@ -1,10 +1,12 @@
 <%= link_to 'ログアウト', logout_path , method: :delete %>
 <h1>写真一覧</h1>
+<%= link_to 'MyTweetAppと連携', my_tweet_app_authorize_link %>
 <%= link_to '写真アップロード', new_picture_path %>
 <div style="display: flex; flex-wrap: wrap;">
 <% @pictures.each do |picture| %>
   <div style="width: 30%;">
     <%= picture.title %>
     <%= image_tag(picture.file, size: '200x200') %>
+    <%= link_to 'ツイートする', picture_tweet_path(picture.id) %>
   </div>
 <% end %>

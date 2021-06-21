@@ -22,6 +22,13 @@ class PicturesController < ApplicationController
     end
   end
 
+  def tweet
+    app = MyTweetApp.new(session['oauth_token'])
+    picture = Picture.find_by(id: params[:id])
+    app.tweet("http://localhost:3000/pictures/#{picture.id}", picture.title)
+    redirect_to pictures_path
+  end
+
   private
   
   def pictures_params

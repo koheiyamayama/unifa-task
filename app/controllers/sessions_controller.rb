@@ -23,6 +23,11 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def callback
+    session[:oauth_token] = Oauth.get_token(params[:code])
+    redirect_to pictures_path
+  end
+
   private
 
   def valid_params?
