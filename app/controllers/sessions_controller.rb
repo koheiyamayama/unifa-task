@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     user = User.find_by(params[:user_id])
     if user&.authenticate(params[:password])
-      # 写真一覧ページへ
+      session[:user_id] = user.id
     else
       @error_messages = ['ユーザIDとパスワードが一致するユーザが登録されていません']
       render :new
