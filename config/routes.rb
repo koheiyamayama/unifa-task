@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resources :sessions, only: [:create]
+  resources :pictures, only: [:index]
 end

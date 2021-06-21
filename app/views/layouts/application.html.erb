@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <% @error_messages.each do |message| %>
+    <% @error_messages&.each do |message| %>
       <p><%= message %></p>
     <% end %>
     <%= yield %>
