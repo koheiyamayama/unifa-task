@@ -3,7 +3,26 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # ログイン処理を実装する
-    # 写真一覧ページへリダイレクトする or エラーを返す
+    unless valid_params?
+      render :new
+      return
+    end
+
+    user = User.find_by(params[:user_id])
+    if user&.authenticate(params[:password])
+      # 写真一覧ページへ
+    else
+      @error_messages = ['ユーザIDとパスワードが一致するユーザが登録されていません']
+      render :new
+    end
+  end
+
+  private
+
+  def valid_params?
+    @error_messages = []
+    @error_messages.push('ユーザIDを入力してください') unless params[:user_id].present?
+    @error_messages.push('パスワードを入力してください') unless params[:password].present?
+    @error_messages.blank?
   end
 end
