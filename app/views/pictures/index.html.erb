@@ -1,0 +1,10 @@
+<%= link_to 'ログアウト', 'sessions', method: :delete %>
+<h1>ログアウト</h1>
+<%= link_to '写真アップロード', 'picrures/new' %>
+<div style="display: flex; flex-wrap: wrap;">
+<% @pictures.each do |picture| %>
+  <div style="width: 30%;">
+    <%= picture.title %>
+    <%= image_tag(picture.file) %>
+  </div>
+<% end %>
