@@ -1,0 +1,10 @@
+<h1>ログイン</h1>
+<%= form_tag do %>
+  <%= label_tag(:user_id, 'ユーザID') %>
+  <%= text_field_tag(:user_id) %>
+  <br>
+  <%= label_tag(:password, 'パスワード') %>
+  <%= password_field_tag(:password) %>
+  <br>
+  <%= submit_tag('ログインする') %>
+<% end %>
