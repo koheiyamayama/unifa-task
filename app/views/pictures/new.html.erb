@@ -1,0 +1,10 @@
+<%= form_with url: pictures_path, scope: :pictures do |f| %>
+  <%= f.label(:title, 'タイトル') %>
+  <%= f.text_field(:title) %>
+  <br>
+  <%= f.label(:file, '画像') %>
+  <%= f.file_field(:file) %>
+  <br>
+  <%= f.submit('アップロードする') %>
+<% end %>
+<%= link_to 'キャンセル', pictures_path %>
