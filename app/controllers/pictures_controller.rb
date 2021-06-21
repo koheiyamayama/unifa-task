@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
   before_action :redirect_login_for_not_login_user
 
   def index
-    @pictures = Picture.order(created_at: :desc)
+    @pictures = current_user.pictures.order(created_at: :desc)
   end
 
   def new
